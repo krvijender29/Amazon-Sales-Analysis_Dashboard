@@ -44,6 +44,11 @@ st.markdown(
 )
 
 # ----------------------------------------------------------------------------
+# DATA PATH — update this to point to your local amazon.csv
+# ----------------------------------------------------------------------------
+CSV_PATH = "data/amazon.csv"  # e.g. "D:/Anaconda/Project/Amazone-Sales-Analysis-Dashbaord/Data/amazon.csv"
+
+# ----------------------------------------------------------------------------
 # DATA LOADING + CLEANING (same logic as the original notebook)
 # ----------------------------------------------------------------------------
 @st.cache_data
@@ -87,20 +92,18 @@ def load_data(file) -> pd.DataFrame:
 
 
 st.sidebar.title("📦 Amazon Sales Dashboard")
-st.sidebar.markdown("Upload the `amazon.csv` dataset to begin.")
+st.sidebar.markdown(f"Loading data from:\n`{CSV_PATH}`")
 
-uploaded_file = st.sidebar.file_uploader("Upload amazon.csv", type=["csv"])
-
-if uploaded_file is None:
+try:
+    df = load_data(CSV_PATH)
+except FileNotFoundError:
     st.title("📦 Amazon Sales Analysis Dashboard")
-    st.info(
-        "👈 Please upload the **amazon.csv** file from the sidebar to load the dashboard.\n\n"
-        "Expected columns: `product_id`, `product_name`, `category`, `discounted_price`, "
-        "`actual_price`, `discount_percentage`, `rating`, `rating_count`."
+    st.error(
+        f"❌ Could not find the data file at **`{CSV_PATH}`**.\n\n"
+        "Update the `CSV_PATH` variable near the top of this script to point "
+        "to your actual `amazon.csv` location."
     )
     st.stop()
-
-df = load_data(uploaded_file)
 
 # ----------------------------------------------------------------------------
 # SIDEBAR FILTERS
