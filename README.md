@@ -2,7 +2,7 @@
 
 An interactive **Streamlit** dashboard built on top of an Amazon product sales dataset analysis (converted from a Jupyter Notebook EDA project). It visualizes pricing, discounts, ratings, and category-level performance through clean, interactive charts and KPIs.
 
-🔗 **Live Demo:** [Click here to view the live app] (https://amazon-sales-analysisdashboard-3ukwibdumnb2mcviccxrxp.streamlit.app/) <!-- TODO: replace with your actual deployed link -->
+🔗 **Live Demo:** [Click here to view the live app](https://amazon-sales-analysisdashboard-3ukwibdumnb2mcviccxrxp.streamlit.app/) <!-- TODO: replace with your actual deployed link -->
 
 ---
 
@@ -26,10 +26,15 @@ An interactive **Streamlit** dashboard built on top of an Amazon product sales d
 
 ```
 .
-├── amazon_sales_dashboard.py   # Main Streamlit app
-├── requirements.txt            # Python dependencies
+├── main.py   # Main Streamlit app
+├── requirements.txt           
+├── Charts
+    ├── Rating-Distribution-plot.png
+    └── Rating-VS-Discount-plot.png
+├── Notebook
+    └── amazon-sales-analysis-notebook.csv
 ├── Data/
-│   └── amazon.csv              # Dataset (not included — add your own)
+│   └── amazon.csv             
 └── README.md
 ```
 
@@ -50,45 +55,8 @@ The app expects a CSV file with at least the following columns:
 | `rating`               | Product rating (e.g. `4.2`)           |
 | `rating_count`         | Number of ratings/reviews             |
 
-> Dataset source: [Amazon Sales Dataset — Kaggle](https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset)
-
 ---
 
-## ⚙️ Setup & Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/amazon-sales-dashboard.git
-   cd amazon-sales-dashboard
-   ```
-
-2. **Create a virtual environment (optional but recommended)**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate      # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Add your dataset**
-
-   Place `amazon.csv` inside a `Data/` folder (or update the `CSV_PATH` variable at the top of `amazon_sales_dashboard.py` to point to your file's actual location):
-
-   ```python
-   CSV_PATH = "Data/amazon.csv"
-   ```
-
-5. **Run the app**
-   ```bash
-   streamlit run amazon_sales_dashboard.py
-   ```
-
-   The app will open automatically at `http://localhost:8501`.
-
----
 
 ## 🚀 Deployment
 
