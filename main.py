@@ -46,7 +46,7 @@ st.markdown(
 # ----------------------------------------------------------------------------
 # DATA PATH — update this to point to your local amazon.csv
 # ----------------------------------------------------------------------------
-CSV_PATH = "data/amazon.csv"  # e.g. "D:/Anaconda/Project/Amazone-Sales-Analysis-Dashbaord/Data/amazon.csv"
+CSV_PATH = "Data/amazon.csv"  # e.g. "D:/Anaconda/Project/Amazone-Sales-Analysis-Dashbaord/Data/amazon.csv"
 
 # ----------------------------------------------------------------------------
 # DATA LOADING + CLEANING (same logic as the original notebook)
